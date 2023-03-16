@@ -1,0 +1,29 @@
+/* section {
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+} */
+
+/* .card {
+    background-image: url(https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148549665.jpg);
+    background: radial-gradient(rgb(210, 167, 216), rgb(247, 241, 244));
+    height: 200px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+
+/* .gridContainer>* {
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+} */
+#img1 {
+    width: 10px;
+    height: auto;
+}
+
+#img2 {
+    width: 100px;
+    height: auto;
+}
