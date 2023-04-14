@@ -8,14 +8,22 @@ body {
 
 #linecero {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     font-weight: bold;
     font-size: xxx-large;
-    padding-top: 30px;
+    padding-top: 25px;
+        color: #050505;
+        text-shadow: 0 0 3px #4e4e4e;
 }
 
+.row {
+    padding: 10px;
+}
 .lineone {
     display: flex;
+    min-width: 400px;
     flex-wrap: wrap;
     column-fill: balance;
     justify-content: center;
@@ -47,30 +55,17 @@ body {
     width: 200px;
     }
     
-    .logos {
+.logos {
         width: auto;
         height: 150px;
         opacity: 1;
-    }
+}
     
-    .logos:hover {
+.logos:hover {
         transition: all .5s ease-in-out;
         -webkit-transition: all .5s ease-in-out;
         -webkit-transform: rotateY(180deg);
         -webkit-transform-style: preserve-3d;
         transform: rotateY(180deg);
         transform-style: preserve-3d;
-    }
-    
-    footer {
-        background-color: rgb(206, 155, 253);
-        display: grid;
-        justify-items: center;
-        /* align-self: center; */
-        clear: both;
-}
-
-.social {
-    display: flex;
-    justify-content: center;
 }

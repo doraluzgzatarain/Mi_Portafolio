@@ -1,0 +1,60 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    /* background: radial-gradient(rgb(135, 60, 145), rgb(235, 183, 213)); */
+    background-image: url(https://cdn.pixabay.com/photo/2020/04/24/13/00/purple-background-5086795_1280.jpg);
+    background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+.nameDora {
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.topNav {
+    color: aliceblue;
+    font-weight: 300;
+}
+
+.barnavprin {
+    background-color: rgb(102, 83, 102);
+}
+
+.barnavaside {
+    background-color: rgb(185, 145, 185);
+}
+
+.medium1 {
+    padding: 90px;
+}
+
+#womanicon {
+    width: 100px;
+    height: auto;
+}
+
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    clear: both;
+}
+
+#derFooter{
+    grid-column: 1/11;
+    background-color: rgb(190, 174, 190);
+    filter: opacity(75%);
+    text-align: center;
+}
+
+#socialFooter {
+    grid-column: 11/13;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    background-color: rgb(102, 83, 102);
+}

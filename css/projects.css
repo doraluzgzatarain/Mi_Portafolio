@@ -1,0 +1,22 @@
+.container {
+    padding-top: 2cm;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: xx-large;
+    padding-top: 25px;
+    color: #050505;
+    text-shadow: 0 0 3px #4e4e4e;
+}
+
+.sectionCards {
+    margin: 1cm;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

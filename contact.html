@@ -10,7 +10,8 @@
     <link rel="shortcut icon"
         href="https://w7.pngwing.com/pngs/684/950/png-transparent-purple-letter-google-s-information-d-purple-violet-text.png"
         type="image/x-icon">
-    <link rel="stylesheet" href="./Mi_Portafolio_HTML/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
@@ -19,62 +20,46 @@
 
 <body>
     <!-- Barra navegación -->
-    <nav class="navbar navbar-dark barnavprin fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">DORA LUZ GARCIA ZATARAIN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end barnavaside" tabindex="-1" id="offcanvasDarkNavbar"
-                aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./Index.html" target="_blank">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" target="_blank" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                About me</a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="./aboutme.html">Me</a></li>
-                                <li><a class="dropdown-item" href="./skills.html">My skills</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./projects.html" target="_blank">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html" target="_blank">Contact</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                </div>
+    <main class="container" id="contentPrin">
+        <div class="whiteblox col-sm-12" id="tittleContact">
+            <div class="tittle-box text-center">
+                <h1 class="title1">
+                    <img src="https://cdn-icons-png.flaticon.com/512/88/88450.png" width="50px" height="auto"></a><b>CONTACT
+                        ME</b>
+                </h1>
+                <p class="subtitle-a">A brief description of myself in my professional stage.
+                </p>
             </div>
-        </div>
-    </nav>
-<footer>
-
-    <em>Derechos reservador &#169; DoraGarcia</em>
-    <br>
-    <div class="social" id="one">
-        <a href="https://www.linkedin.com/in/dora-luz-garcia-zatarain/" target="_blank"><img src="./scr/lkn.png"
-                width="35px" height="35px" class="rounded mx-auto d-block" alt="redes1"></a>
-    </div>
-    <div class="social" id="two">
-        <a href="https://github.com/doraluzgzatarain" target="_blank"><img src="./scr/github.png" width="35px"
-                height="35px" class="rounded mx-auto d-block" alt="redes2"></a>
-    </div>
-</footer>
+                <section class="contactPage">
+                    <article id="fControl">
+                        <form class="contactForm">
+                            <div class="alert alert-danger fade show" style="display:none;" role="alert" id="alertValidaciones">
+                                <p id="alertValidacionesTexto"></p>
+                </div>
+                <div class="info" id="formName">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" />
+                </div>
+                <div class="info" id="formPhone">
+                    <label for="exampleFormControlInput1" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="phone" placeholder="10 digitos. Ej. 333825079" />
+                </div>
+                <div class="info" id="formMail">
+                    <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="mail" placeholder="name@example.com" />
+                </div>
+                <div class="info" id="formMsg">
+                    <label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
+                    <textarea class="form-control" id="msg" rows="3"></textarea>
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" id="btnSend">Enviar</button>
+                </form>
+                </article>
+                </section>
+                </main>
+                
+                <script src="./js/main.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
     crossorigin="anonymous"></script>

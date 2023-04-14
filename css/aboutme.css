@@ -1,35 +1,33 @@
 * {
     box-sizing: border-box;
 }
+.backgroundAboutme {
+    background-image: url(https://img.freepik.com/vector-gratis/fondo-ondulado-morado_1035-8665.jpg?w=2000);
+}
+
+.title1 {
+    color: #050505;
+    text-shadow: 0 0 3px #4e4e4e;
+}
 @media(max-width: 500px) {
     .row>.col-sm-6>#barleft>.col-sm-1>.about-img {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         padding: 1px;
     }
 }
 
-@media(max-width: 1000px) {
+@media(min-width: 00px) {
     .about-info {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-    }
-}
-
-@media (max-width: 500px) {
-    .container {
-        width: 600px;
-    }
-
-    .about-mf.box-shallow-full {
-        width: 600px;
-        display: flex;
-        justify-content: center;
-        padding: 3rem .5rem;
     }
 }
 
 .container {
+    background-image: url(https://img.freepik.com/vector-gratis/fondo-ondulado-morado_1035-8665.jpg?w=2000) !;
     width: 100%;
         padding-right: 18px;
             padding-left: 18px;
@@ -69,7 +67,7 @@
     background-color: #fff;
     margin-bottom: 3rem;
     z-index: 2;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 30px #050505;
 }
 
 .socials {
