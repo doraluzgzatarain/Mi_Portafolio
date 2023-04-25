@@ -1,17 +1,58 @@
 let contentPrin = document.getElementById("contentPrin");
 
+
+var TxtType = function (el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span>' + this.txt + '</span>';
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
 //ADD NAV AND FOOTER IN ALL PAGES
 window.addEventListener("load", function (event) {
 
-    contentPrin.insertAdjacentHTML("beforebegin", `
-    <nav class="navbar navbar-dark barnavprin fixed-top">
+  contentPrin.insertAdjacentHTML("afterbegin", `
+    <nav class="navbar navbar-dark barnavprin fixed-top" id="navegationBar">
     <div class="container-fluid">
       <a class="navbar-brand nameDora" href="#">DORA LUZ GARCIA ZATARAIN</a>
       <div>
-        <a class="navbar-brand topNav" aria-current="page" href="./Index.html" target="_blank">HOME</a>
-        <a class="navbar-brand topNav" href="./aboutme.html" target="_blank">ME</a>
-        <a class="navbar-brand topNav" href="./projects.html" target="_blank">PROJECTS</a>
-        <a class="navbar-brand topNav" href="./contact.html" target="_blank">CONTACT</a>
+        <a class="navbar-brand topNav" aria-current="page" href="./Index.html">HOME</a>
+        <a class="navbar-brand topNav" href="#about">ME</a>
+        <a class="navbar-brand topNav" href="#projectsSec" >PROJECTS</a>
+        <a class="navbar-brand topNav" href="#tittleContact">CONTACT</a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
         aria-controls="offcanvasDarkNavbar">
@@ -57,7 +98,7 @@ window.addEventListener("load", function (event) {
     )
 
     contentPrin.insertAdjacentHTML("afterend", `
-    <footer class="fixed-bottom">
+    <footer>
     <div id="derFooter"><em>Derechos reservador &#169; DoraGarcia</em></div>
     <div class="social" id=socialFooter>
       <a href="https://www.linkedin.com/in/dora-luz-garcia-zatarain/" target="_blank"><img src="./scr/lkn.png" width="30px"
@@ -68,111 +109,12 @@ window.addEventListener("load", function (event) {
     </footer>
     `
     )
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-type');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
 })
-
-// SEND EMAIL TO CONTACT ME IN CONTACT.HTML
-
-let txtName = document.getElementById("name");
-let txtLastName = document.getElementById("lastName");
-let txtPhone = document.getElementById("phone");
-let txtMail = document.getElementById("mail");
-let txtMsg = document.getElementById("msg");
-
-let alertValidaciones = document.getElementById("alertValidaciones");
-let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-
-let btnSend = document.getElementById("btnSend");
-
-let isValid = true;
-let idTimeOut;
-let regexPhone = /^[1-9]\d{9,12}$/;
-let regexMail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-
-function validarPhone() {
-    if (txtPhone.value.match(regexPhone)) {
-        console.log("true");
-        return true;
-    }
-    console.log(false);
-    return false;
-} //Validar teléfono 
-
-function validarMail() {
-    if (txtMail.value.match(regexMail)) {
-        console.log("true");
-        return true;
-    }
-    console.log(false);
-    return false;
-} //Validar teléfono 
-
-btnSend.addEventListener("click", function (event) {
-    event.preventDefault();
-    isValid = true;
-    clearTimeout(idTimeOut);
-    alertValidacionesTexto.innerHTML = "";
-    alertValidaciones.style.display = "none";
-    let alert = "Los siguientes campos deben ser llenados correctamente: <ul>";
-
-    if (txtName.value.length < 2) {
-        txtName.style.border = "solid thin red";
-        alert += "<li> Se debe escribir un nombre válido.</li>";
-        alertValidaciones.style.display = "block";
-        isValid = false;
-    } else {
-        txtName.style.border = "";
-    }//If name
-
-    if (txtLastName.value.length < 2) {
-        txtLastName.style.border = "solid thin red";
-        alert += "<li> Se debe escribir un apellido válido.</li>";
-        alertValidaciones.style.display = "block";
-        isValid = false;
-    } else {
-        txtLastName.style.border = "";
-    }// if last Name
-
-    if (!validarPhone()) {
-        txtPhone.style.border = "solid thin red";
-        alert += "<li> Se debe escribir un número de teléfono válido.</li>";
-        alertValidaciones.style.display = "block";
-        isValid = false;
-    } else {
-        txtPhone.style.border = "";
-    }
-
-    if (!validarMail()) {
-        txtMail.style.border = "solid thin red";
-        alert += "<li> Se debe escribir un número de teléfono válido.</li>";
-        alertValidaciones.style.display = "block";
-        isValid = false;
-    } else {
-        txtMail.style.border = "";
-    }//If email
-
-    if (txtMsg.value.length < 10) {
-        txtMsg.style.border = "solid thin red";
-        alert += "<li> Se debe escribir un mensaje más largo.</li>";
-        alertValidaciones.style.display = "block";
-        isValid = false;
-    } else {
-        txtMsg.style.border = "";
-    }//If msg
-
-    alert += "</ul>";
-    alertValidacionesTexto.insertAdjacentHTML("beforeend", alert);
-    idTimeOut = setTimeout(function () {
-        alertValidaciones.style.display = "none";
-    }, 3000);
-
-    Email.send({
-        Host: "smtp.elasticemail.com",
-        To: 'doraluz.g27.com',
-        From: txtMail,
-
-        Subject: "Mensaje de Yeti Personalizado",
-        Body: "Nombre: " + txtName + "<br>Apellido: " + txtLastName + "<br>Correo: " + txtMail + "<br>Telefono: " + txtPhone + "<br>Mensaje: " + txtMsg
-    }).then(
-        message => alert(message)
-    ); // function https://smtpjs.com/
-});

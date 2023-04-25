@@ -2,6 +2,12 @@
     padding-top: 2cm;
 }
 
+#projectsSec{
+    background: linear-gradient(to top, rgb(98 78 98 /40%),rgb(185, 145, 185)), url(https://wallpaperaccess.com/full/4123559.jpg);
+    margin-top: 5rem;
+    padding: 3rem 0;
+}
+
 .title {
     display: flex;
     flex-wrap: wrap;
@@ -19,4 +25,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-bottom: 6rem;
 }
